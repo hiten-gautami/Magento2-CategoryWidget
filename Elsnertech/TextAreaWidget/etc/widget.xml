@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="elsnertech_category_widget" class="Elsnertech\CMSPageWidget\Block\Widget\PageWidget">
+        <label>Elsnertech Category Widget</label>
+        <description>Elsnertech Custom Widget For Category.</description>
+        <parameters>
+            <parameter name="elsnertech_category_id_path" xsi:type="block" visible="true" required="false" sort_order="12">
+                <label translate="true">Category</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Category...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+   </widget>
+</widgets>

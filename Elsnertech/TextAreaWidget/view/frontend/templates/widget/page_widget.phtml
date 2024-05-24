@@ -1,0 +1,39 @@
+<div class="elsnertech_category_id_path">
+    <?php if ($block->getData('elsnertech_category_id_path')): ?>
+        <div class="elsnertech_category_id_path">
+            <?php
+            $categoryPath = $block->getData('elsnertech_category_id_path');
+            $categoryId = substr($categoryPath, strpos($categoryPath, "/") + 1);
+            $categoryProducts = $block->getCategoryProducts($categoryId);
+            ?>
+            <?php if (!empty($categoryProducts)): ?>
+                <?php foreach ($categoryProducts as $product): ?>
+                    <div class="product-list">
+                        <div class="product-item">
+                            <div class="product-image">
+                                <?php
+                                $_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                                $imageHelper = $_objectManager->get('\Magento\Catalog\Helper\Image');
+                                $image_url = $imageHelper->init($product, 'category_page_grid')->setImageFile($product->getFile())->getUrl();
+                                ?>
+                                <img src="<?= $image_url ?>" alt="Product Image">
+                            </div>
+                            <div class="product-details">
+                                <div class="product-name">
+                                    <?= $product->getName() ?>
+                                </div>
+                                <div class="price">
+                                    <?php $productPrice = number_format($product->getPriceView(), 2); ?>
+                                    <?= "$" . $productPrice ?>
+                                </div>
+                                <div class="buttons">
+                                    <a href="<?= $block->getBaseUrl() . $product->getUrlKey() . '.html' ?>">SELECT</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+</div>
