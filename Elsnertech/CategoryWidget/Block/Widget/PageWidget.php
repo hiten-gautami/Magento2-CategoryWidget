@@ -24,17 +24,33 @@ class PageWidget extends Template implements BlockInterface
       $this->_storeManager = $storeManager;
    }
 
+   /**
+    * getMediaPath function
+    *
+    * @return void
+    */
    public function getMediaPath()
    {
       $mediaUrl = $this->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
       return $mediaUrl;
    }
 
+   /**
+    * getBaseUrl function
+    *
+    * @return void
+    */
    public function getBaseUrl()
    {
       return $this->_storeManager->getStore()->getBaseUrl();
    }
 
+   /**
+    * getCategoryProducts function
+    *
+    * @param [type] $categoryId
+    * @return void
+    */
    public function getCategoryProducts($categoryId)
    {
       $category = $this->categoryFactory->create()->load($categoryId);
