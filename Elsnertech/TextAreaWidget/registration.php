@@ -4,6 +4,6 @@ use \Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(
     ComponentRegistrar::MODULE,
-    'Elsnertech_TextAreaWidget',
+    'Elsnertech_CategoryWidget',
     __DIR__
 );
